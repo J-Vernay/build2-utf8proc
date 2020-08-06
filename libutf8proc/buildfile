@@ -2,8 +2,8 @@ intf_libs = # Interface dependencies.
 impl_libs = # Implementation dependencies.
 #import impl_libs += libhello%lib{hello}
 
-# do not process utf8proc_data.c!!
-lib{utf8proc}: {h c}{utf8proc} $impl_libs $intf_libs
+# utf8proc_data.c is included, not compiled!!
+lib{utf8proc}: {h c}{utf8proc} h{utf8proc_data.c} $impl_libs $intf_libs
 
 # Build options.
 #

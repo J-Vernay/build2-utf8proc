@@ -1,0 +1,42 @@
+intf_libs = # Interface dependencies.
+impl_libs = # Implementation dependencies.
+#import impl_libs += libhello%lib{hello}
+
+# do not process utf8proc_data.c!!
+lib{utf8proc}: {h c}{utf8proc} $impl_libs $intf_libs
+
+# Build options.
+#
+c.poptions =+ "-I$out_root" "-I$src_root"
+
+obja{*}: c.poptions += -DUTF8PROC_STATIC
+objs{*}: c.poptions += -DUTF8PROC_EXPORTS
+
+# Export options.
+#
+lib{utf8proc}:
+{
+  c.export.poptions = "-I$out_root" "-I$src_root"
+  c.export.libs = $intf_libs
+}
+
+liba{utf8proc}: c.export.poptions += -DUTF8PROC_STATIC
+libs{utf8proc}: c.export.poptions += 
+
+# For pre-releases use the complete version to make sure they cannot be used
+# in place of another pre-release or the final version. See the version module
+# for details on the version.* variable values.
+#
+if $version.pre_release
+  lib{utf8proc}: bin.lib.version = @"-$version.project_id"
+else
+  lib{utf8proc}: bin.lib.version = @"-$version.major.$version.minor"
+
+# Install into the libutf8proc/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+{h}{*}:
+{
+  install         = include/libutf8proc/
+  install.subdirs = true
+}

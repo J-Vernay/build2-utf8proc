@@ -1,0 +1,6 @@
+$out_root/
+{
+  include libutf8proc/
+}
+
+export $out_root/libutf8proc/$import.target

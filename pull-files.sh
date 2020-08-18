@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "Hello world"
-
 function pushdd { 
   pushd $1 > /dev/null
 }
@@ -39,4 +37,4 @@ pushdd tests
   rm tests.c tests.h
 popdd
 
-pwd
+echo "ATTENTION! Needs manual removal of wcwidth references in tests/charwidth/driver.c before pushing /!\\"

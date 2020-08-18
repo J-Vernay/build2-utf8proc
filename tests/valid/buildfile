@@ -1,3 +1,5 @@
 import libs = libutf8proc%lib{utf8proc}
 
+c.std = c99
+
 exe{driver}: {h c}{*} {h}{../utf8proc} $libs testscript{**}

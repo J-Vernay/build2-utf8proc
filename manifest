@@ -1,6 +1,6 @@
 : 1
 name: libutf8proc
-version: 2.5.0
+version: 2.5.1
 project: utf8proc
 summary: Small, clean C library that provides Unicode normalization, case-folding, and other operations for data in the UTF-8 encoding.
 license: MIT

@@ -9,3 +9,8 @@ See also:
 - `utf8proc`: https://github.com/JuliaStrings/utf8proc
 - **Build2**: https://build2.org
 
+## Versioning
+
+A semantic version is splitted in `MAJOR.MINOR.PATH`.
+The `MAJOR` and `MINOR` of this package matches the `utf8proc` library.
+The `PATCH` of this package is changed independently.
